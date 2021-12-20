@@ -3,40 +3,17 @@
     "tasks": [
         {
             "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/App/DotNet.Docker.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/App/DotNet.Docker.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "${workspaceFolder}/App/DotNet.Docker.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
+            "type": "shell",
+            "command": "dotnet build",
+            "options": {
+                "cwd": "${workspaceFolder}/src/"
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "clear": true,
+                "reveal": "silent"
+            },
+            "group": "build"
         }
     ]
 }
