@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace MyAdmin
+namespace MyAdmin.WebApi
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace MyAdmin
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAdmin", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAdmin.WebApi", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace MyAdmin
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAdmin v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAdmin.WebApi v1"));
             }
 
             // app.UseHttpsRedirection();

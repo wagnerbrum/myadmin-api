@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "dotnet build",
             "options": {
-                "cwd": "${workspaceFolder}/src/"
+                "cwd": "${workspaceFolder}/src/MyAdmin.WebApi",
             },
             "problemMatcher": "$msCompile",
             "presentation": {

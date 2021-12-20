@@ -26,9 +26,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/bin/Debug/net5.0/MyAdmin.dll",
+            "program": "${workspaceFolder}/src/MyAdmin.WebApi/bin/Debug/net5.0/MyAdmin.WebApi.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}/src/MyAdmin.WebApi",
             "console": "integratedTerminal",
             "serverReadyAction": {
                 "action": "openExternally",

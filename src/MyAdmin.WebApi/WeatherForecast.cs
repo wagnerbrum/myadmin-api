@@ -1,6 +1,6 @@
 using System;
 
-namespace MyAdmin
+namespace MyAdmin.WebApi
 {
     public class WeatherForecast
     {
