@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyAdmin.WebApi.Controllers;
@@ -21,6 +22,18 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
+        // var resultString = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+        // _logger.LogDebug("Return ListarEspecialidades " + resultString);
+
+        _logger.LogInformation("WeatherForecast - Get()");
+
+        var obj = JsonSerializer.Serialize(new {
+            Teste = "teste 123",
+            Teste2 = "teste 123"
+        });
+        
+        _logger.LogInformation($"WeatherForecast - Teste - {obj.ToString()}");
+
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateTime.Now.AddDays(index),
