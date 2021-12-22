@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
 namespace MyAdmin.Infrastructure.Bootstrap;
@@ -12,14 +15,23 @@ public static class StartupSwagger
 
         services.AddSwaggerGen(setup => setup.SwaggerDoc("v1", new OpenApiInfo()
         {
-            Description = "Todo web api implementation using Minimal Api in Asp.Net Core",
-            Title = "Todo Api",
+            Description = "MyAdmin is a project to training programming",
+            Title = "MyAdmin Api",
             Version = "v1",
             Contact = new OpenApiContact()
             {
-                Name = "anuraj",
-                Url = new Uri("https://dotnetthoughts.net")
+                Name = "wagnerbrum",
+                Url = new Uri("https://github.com/wagnerbrum")
             }
         }));
+    }
+
+    public static void ConfigureApplication(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
     }
 }
