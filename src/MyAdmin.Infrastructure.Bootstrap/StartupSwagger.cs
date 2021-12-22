@@ -1,27 +1,25 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace MyAdmin.Infrastructure.Bootstrap
+namespace MyAdmin.Infrastructure.Bootstrap;
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+public static class StartupSwagger
 {
-    public static class StartupSwagger
+    public static void ConfigureServices(IServiceCollection services)
     {
-        private const string UrlBaseSwagger = "/swagger/v1/swagger.json";
-        private const string VersaoSwagger = "v1";
+        services.AddEndpointsApiExplorer();
 
-        public static void ConfigureServices(IServiceCollection services, string title, string version, string description)
+        services.AddSwaggerGen(setup => setup.SwaggerDoc("v1", new OpenApiInfo()
         {
-            services.AddSwaggerGen(c =>
+            Description = "Todo web api implementation using Minimal Api in Asp.Net Core",
+            Title = "Todo Api",
+            Version = "v1",
+            Contact = new OpenApiContact()
             {
-                c.SwaggerDoc(VersaoSwagger, new OpenApiInfo { Title = title, Version = version, Description = description });
-            });
-        }
-
-        public static void Configure(IApplicationBuilder app)
-        {
-            app.UseDeveloperExceptionPage();
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint(UrlBaseSwagger, VersaoSwagger));
-        }
+                Name = "anuraj",
+                Url = new Uri("https://dotnetthoughts.net")
+            }
+        }));
     }
 }
